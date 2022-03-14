@@ -1,0 +1,31 @@
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+#valider:hover,
+#modifier:hover,
+#supprimer:hover{
+	-fx-background-color:  #2596be;
+}
+#valider:pressed, 
+#AjouetEtudiant:pressed,
+#ModifierEtudiant:pressed,
+#listeEtudiant:pressed,
+#supprimerEtudiant:pressed,
+#versement:pressed,
+#ajouterAgent:pressed,
+#supprimerAgent:pressed,
+#deconnexion:pressed,
+#modifier:pressed,
+#supprmer:pressed{
+	-fx-background-color: transparent;
+}
+
+#AjouetEtudiant:hover,
+#ModifierEtudiant:hover,
+#listeEtudiant:hover,
+#supprimerEtudiant:hover,
+#versement:hover,
+#ajouterAgent:hover,
+#supprimerAgent:hover,
+#deconnexion:hover,
+#validerliste:hover{
+	-fx-background-color:  white;
+}

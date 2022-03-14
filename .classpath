@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.8.0_211"/>
+	<classpathentry kind="con" path="org.eclipse.fx.ide.jdt.core.JAVAFX_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/fontawesome"/>
+	<classpathentry kind="lib" path="C:/Users/HP/Downloads/fontawesome/fontawesomefx-8.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/HP/Downloads/charm-glisten-6.1.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/HP/Downloads/fontawesomefx-8.9.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Hibernate"/>
+	<classpathentry kind="lib" path="C:/Users/HP/Downloads/hibernate/Jdbc/mysql-connector-java-8.0.28/mysql-connector-java-8.0.28.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

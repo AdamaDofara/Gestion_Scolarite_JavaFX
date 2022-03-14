@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="listeEtudiant" prefHeight="533.0" prefWidth="619.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.listeEtudiantController">
+   <children>
+      <AnchorPane prefHeight="99.0" prefWidth="619.0" style="-fx-background-color: #2596be;">
+         <children>
+            <Label alignment="CENTER" layoutX="176.0" layoutY="4.0" prefHeight="17.0" prefWidth="252.0" text="LISTE DES ETUDIANTS" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font></Label>
+            <RadioButton fx:id="Ajour" layoutX="52.0" layoutY="33.0" mnemonicParsing="false" onAction="#AjourOnAction" text="les étudiants à jour">
+               <toggleGroup>
+                  <ToggleGroup fx:id="scolarite" />
+               </toggleGroup>
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></RadioButton>
+            <RadioButton fx:id="etudiant" layoutX="450.0" layoutY="33.0" mnemonicParsing="false" onAction="#etudiantOnAction" selected="true" text="Tous les étudiants" toggleGroup="$scolarite">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></RadioButton>
+            <RadioButton fx:id="nonAjour" layoutX="233.0" layoutY="33.0" mnemonicParsing="false" onAction="#nonAjourOnAction" text="les étudiants non à jour " toggleGroup="$scolarite">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></RadioButton>
+            <Button fx:id="validerliste" layoutX="283.0" layoutY="60.0" mnemonicParsing="false" onAction="#validerlisteOnAction" text="Valider" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutY="102.0" prefHeight="300.0" prefWidth="451.0">
+         <children>
+            <ScrollPane fx:id="scroller" layoutY="-7.0" prefHeight="473.0" prefWidth="619.0">
+               <content>
+                  <TableView fx:id="tableau" prefHeight="473.0" prefWidth="619.0">
+                    <columns>
+                      <TableColumn fx:id="matricule" minWidth="86.0" prefWidth="97.0" style="-fx-background-color: #2596be;" text="Matricule" />
+                      <TableColumn fx:id="nom" minWidth="103.0" prefWidth="109.0" style="-fx-background-color: #2596be;" text="Nom" />
+                        <TableColumn fx:id="prenom" minWidth="103.0" prefWidth="75.0" style="-fx-background-color: #2596be;" text="Prenom" />
+                        <TableColumn minWidth="103.0" prefWidth="75.0" style="-fx-background-color: #2596be;" text="Filière" />
+                        <TableColumn fx:id="paye" minWidth="103.0" prefWidth="75.0" style="-fx-background-color: #2596be;" text="Payé" />
+                        <TableColumn fx:id="restant" minWidth="39.0" prefWidth="102.0" style="-fx-background-color: #2596be;" text="Restant" />
+                    </columns>
+                  </TableView>
+               </content>
+            </ScrollPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

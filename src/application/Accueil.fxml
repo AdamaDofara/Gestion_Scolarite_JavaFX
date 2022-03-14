@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane fx:id="ContenuPrincipal" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.AccueilController">
+   <top>
+      <AnchorPane prefHeight="30.0" prefWidth="801.0" style="-fx-background-color: #2596be;" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="close" layoutX="768.0" layoutY="-1.0" minHeight="-Infinity" mnemonicParsing="false" onAction="#closeOnAction" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: #2596be;" textFill="RED">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/ferrmeture.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+         </children>
+      </AnchorPane>
+   </top>
+   <left>
+      <AnchorPane prefHeight="535.0" prefWidth="179.0" style="-fx-background-color: #2596be;" BorderPane.alignment="CENTER">
+         <children>
+            <VBox layoutX="-1.0" layoutY="60.0" prefHeight="284.0" prefWidth="51.0">
+               <children>
+                  <ImageView fitHeight="43.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/ajout.png" />
+                     </image>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </ImageView>
+                  <ImageView fitHeight="43.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/modifier.png" />
+                     </image>
+                     <VBox.margin>
+                        <Insets bottom="6.0" />
+                     </VBox.margin>
+                  </ImageView>
+                  <ImageView fitHeight="43.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/liste.png" />
+                     </image>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </ImageView>
+                  <ImageView fitHeight="43.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/supprimer.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="43.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/versement.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </VBox>
+            <Label fx:id="AgentEnLigne" alignment="CENTER" layoutY="-1.0" prefHeight="24.0" prefWidth="179.0" text="Agent En ligne" textFill="WHITE" />
+            <VBox layoutX="50.0" layoutY="63.0" prefHeight="284.0" prefWidth="131.0">
+               <children>
+                  <Button fx:id="AjouetEtudiant" mnemonicParsing="false" onAction="#AjouetEtudiantOnAction" prefHeight="43.0" prefWidth="131.0" stylesheets="@application.css" text="Ajout Etudiant" />
+                  <Button fx:id="ModifierEtudiant" mnemonicParsing="false" onAction="#ModifierEtudiantOnAction" prefHeight="43.0" prefWidth="131.0" text="Modifier Etudiant" />
+                  <Button fx:id="listeEtudiant" mnemonicParsing="false" onAction="#listeEtudiantOnAction" prefHeight="43.0" prefWidth="131.0" text="Liste Etudiant" />
+                  <Button fx:id="supprimerEtudiant" mnemonicParsing="false" onAction="#supprimerEtudiantOnAction" prefHeight="43.0" prefWidth="131.0" stylesheets="@application.css" text="Supprimer Etudiant" />
+                  <Button fx:id="versement" mnemonicParsing="false" onAction="#versementOnAction" prefHeight="43.0" prefWidth="131.0" text="Versement" />
+               </children>
+            </VBox>
+            <Button fx:id="deconnexion" layoutY="527.0" mnemonicParsing="false" onAction="#deconnexionOnAction" prefHeight="44.0" prefWidth="181.0" text="Déconnexion">
+               <graphic>
+                  <ImageView fitHeight="35.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/My%20project%20(1).png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Label alignment="CENTER" layoutY="344.0" prefHeight="24.0" prefWidth="179.0" text="DIRECTEUR" textFill="WHITE" />
+            <ImageView fitHeight="43.0" fitWidth="50.0" layoutX="3.0" layoutY="377.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/ajout.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="ajouterAgent" layoutX="50.0" layoutY="377.0" mnemonicParsing="false" onAction="#ajouterAgentOnAction" prefHeight="43.0" prefWidth="131.0" text="Ajout Agent" />
+            <ImageView fitHeight="43.0" fitWidth="50.0" layoutX="3.0" layoutY="420.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/supprimer.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="supprimerAgent" layoutX="50.0" layoutY="420.0" mnemonicParsing="false" onAction="#supprimerAgentOnAction" prefHeight="43.0" prefWidth="131.0" text="Supprimer Agent" />
+            <Label fx:id="matricule" alignment="CENTER" layoutX="1.0" layoutY="23.0" prefHeight="24.0" prefWidth="179.0" text="Label" textFill="WHITE" />
+         </children>
+      </AnchorPane>
+   </left>
+   <center>
+      <AnchorPane fx:id="contenu" prefHeight="597.0" prefWidth="619.0" BorderPane.alignment="CENTER" />
+   </center>
+</BorderPane>
