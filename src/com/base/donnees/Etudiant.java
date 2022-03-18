@@ -137,7 +137,7 @@ public class Etudiant implements java.io.Serializable {
 		this.genre = genre;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "etudiant")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "etudiant")
 	public Set<Versement> getVersements() {
 		return this.versements;
 	}

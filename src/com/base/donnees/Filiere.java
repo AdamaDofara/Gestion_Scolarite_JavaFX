@@ -56,7 +56,7 @@ public class Filiere implements java.io.Serializable {
 		this.libelle = libelle;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "filiere")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "filiere")
 	public Set<Etudiant> getEtudiants() {
 		return this.etudiants;
 	}

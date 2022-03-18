@@ -73,4 +73,9 @@ public class ajouterAgentController {
 		 label.setText(matricul);
 		 label.setVisible(false);
 	}
+	
+	public void setId_agent(String s) {
+		label.setText(s);
+		label.setVisible(false);
+	}
 }

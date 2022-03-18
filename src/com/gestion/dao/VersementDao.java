@@ -82,5 +82,30 @@ public class VersementDao implements IVersementDao {
 	            }
 	        }
 	}
+
+	@Override
+	public List<Versement> getVerementOfAEtudiant(String s) {
+		// TODO Auto-generated method stub
+		Transaction transaction = null;
+        List<Versement> versements = null;
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            // start the transaction
+            transaction = session.beginTransaction();
+
+            // get students
+            versements = session.createQuery("SELECT  FROM versement v INNER JOIN etudiant e ON "+s+"=v.matricule"
+            		+ "INNER JOIN agentdescolarite a ON a.id_agent=v.id_agent"
+            		+ "GROUP BY(e.matricule)").list();
+            //student = session.load(Student.class, id);
+            // commit the transaction
+            transaction.commit();
+            session.close();
+        } catch (Exception e) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+        }
+        return versements;
+	}
 	
 }

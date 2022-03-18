@@ -1,4 +1,4 @@
-package com.gestion.dao;
+ package com.gestion.dao;
 
 import java.util.List;
 
@@ -10,4 +10,5 @@ public interface IVersementDao {
 	List<Versement> getAllVersement();
 	Versement getVersementById(VersementId id);
 	public void saveVersement(Versement versement);
+	List<Versement> getVerementOfAEtudiant(String s);
 }

@@ -1,13 +1,11 @@
 package application;
-	
-import java.util.List;
-import java.util.ResourceBundle;
 
-import com.base.donnees.Directeur;
+
+
+import java.util.Set;
+
+import com.base.donnees.Etudiant;
 import com.base.donnees.Filiere;
-import com.gestion.dao.DirecteurDao;
-import com.gestion.dao.FiliereDao;
-
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -15,13 +13,14 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.BorderPane;
+
 
 
 
 public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
+		
 		Parent root;
 		try {
 			primaryStage.initStyle(StageStyle.UNDECORATED);
@@ -36,33 +35,16 @@ public class Main extends Application {
 		}
 	}
 	public static void main(String[] args) {
+		Filiere fil = new Filiere("MIAGE");
+		Set<Etudiant> lll=null;
+		lll=fil.getEtudiants();
+		for (Etudiant etudiant : lll) {
+			
+			System.out.println(etudiant.getNom()+" "+etudiant.getPrenom());
+			System.out.println("bonjou!!!!");
+		}
 		launch(args);
-		List<Filiere> filiere = null;
-		FiliereDao dd = new FiliereDao();
-		try {
-			filiere = dd.getAllFiliere();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-        for (Filiere filiere1 : filiere) {
-        	 //System.out.println(filiere1.getLibelle());
-		}
-        
-
-
-	}
-	
-	
-//	public void start(Stage primaryStage) {
-//		try {
-//			
-//			Parent root;
-//			root = FXMLLoader.load(getClass().getResource("authentification.fxml"));
-//			Scene scene = new Scene(root);
-//			primaryStage.show();
-//		} catch(Exception e) {
-//			e.printStackTrace();
-//		}
-//	}
+		
+		
+}
 }
