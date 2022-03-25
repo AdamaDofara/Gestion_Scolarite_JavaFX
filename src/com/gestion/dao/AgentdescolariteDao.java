@@ -8,6 +8,7 @@ import org.hibernate.Transaction;
 import com.base.donnees.Agentdescolarite;
 import com.gestion.util.HibernateUtil;
 
+
 public class AgentdescolariteDao implements IAgentdescolariteDao {
 
 	@Override
@@ -24,6 +25,7 @@ public class AgentdescolariteDao implements IAgentdescolariteDao {
 	            
 	            // commit the transaction
 	            transaction.commit();
+	            session.close();
 	        } catch (Exception e) {
 	            if (transaction != null) {
 	                transaction.rollback();
@@ -45,6 +47,7 @@ public class AgentdescolariteDao implements IAgentdescolariteDao {
             //student = session.load(Student.class, id);
             // commit the transaction
             transaction.commit();
+            session.close();
         } catch (Exception e) {
             if (transaction != null) {
                 transaction.rollback();
@@ -54,7 +57,7 @@ public class AgentdescolariteDao implements IAgentdescolariteDao {
 	}
 
 	@Override
-	public void deleteAgent(int id) {
+	public void SupprimerAgent(int id) {
 		// TODO Auto-generated method stub
 		Transaction transaction = null;
         Agentdescolarite agent = null;
@@ -68,11 +71,40 @@ public class AgentdescolariteDao implements IAgentdescolariteDao {
             //student = session.load(Student.class, id);
             // commit the transaction
             transaction.commit();
+            session.close();
         } catch (Exception e) {
             if (transaction != null) {
                 transaction.rollback();
             }
         }
+	}
+
+	@Override
+	public Agentdescolarite getAgentScoById(int id) {
+		// TODO Auto-generated method stub
+		Transaction transaction = null;
+        Agentdescolarite agt = null;
+        try {
+			Session session = HibernateUtil.getSessionFactory().openSession();
+			    // start the transaction
+			    transaction = session.beginTransaction();
+
+			    // get student object
+			    agt= session.byId(Agentdescolarite.class).getReference(id);
+			     // or student = session.get(Student.class, id);
+			    //or student = session.load(Student.class, id);
+			   //or commit the transaction
+			    transaction.commit();
+			    session.close();
+		} catch (Exception e) {
+			if (transaction != null) {
+                transaction.rollback();
+		}
+			
+		}
+        
+        
+        return agt;
 	}
 
 }

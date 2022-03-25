@@ -1,5 +1,5 @@
 package com.base.donnees;
-// Generated 8 mars 2022 à 09:59:35 by Hibernate Tools 4.3.5.Final
+// Generated 24 mars 2022 à 09:24:39 by Hibernate Tools 4.3.5.Final
 
 import java.util.Date;
 import java.util.HashSet;
@@ -71,7 +71,7 @@ public class Etudiant implements java.io.Serializable {
 		this.matricule = matricule;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "id_filiere", nullable = false)
 	public Filiere getFiliere() {
 		return this.filiere;
@@ -81,7 +81,7 @@ public class Etudiant implements java.io.Serializable {
 		this.filiere = filiere;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "id_niveau", nullable = false)
 	public Niveau getNiveau() {
 		return this.niveau;

@@ -1,5 +1,5 @@
 package com.base.donnees;
-// Generated 8 mars 2022 à 09:59:35 by Hibernate Tools 4.3.5.Final
+// Generated 24 mars 2022 à 09:24:39 by Hibernate Tools 4.3.5.Final
 
 import java.util.HashSet;
 import java.util.Set;
@@ -66,7 +66,7 @@ public class Agentdescolarite implements java.io.Serializable {
 		this.idAgent = idAgent;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "matricule", nullable = false)
 	public Directeur getDirecteur() {
 		return this.directeur;
@@ -121,7 +121,7 @@ public class Agentdescolarite implements java.io.Serializable {
 		this.motPasse = motPasse;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "agentdescolarite")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "agentdescolarite")
 	public Set<Versement> getVersements() {
 		return this.versements;
 	}

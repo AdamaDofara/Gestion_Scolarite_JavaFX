@@ -46,7 +46,7 @@ public class ajouterAgentController {
 			nouvelAgent.setPrenom(prenom.getText());
 			nouvelAgent.setPseudo(pseudo.getText());
 			DirecteurDao dg = new DirecteurDao();
-			
+			//nouvelAgent.setMatricule(label.getText());
 			nouvelAgent.setDirecteur(dg.getDirecteurByMatricule(label.getText()));
 			//Enregistremment de l'agent dans la bd
 			AgentdescolariteDao test = new AgentdescolariteDao();

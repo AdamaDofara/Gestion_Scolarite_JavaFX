@@ -1,5 +1,5 @@
 package com.base.donnees;
-// Generated 8 mars 2022 à 09:59:35 by Hibernate Tools 4.3.5.Final
+// Generated 24 mars 2022 à 09:24:39 by Hibernate Tools 4.3.5.Final
 
 import java.util.HashSet;
 import java.util.Set;

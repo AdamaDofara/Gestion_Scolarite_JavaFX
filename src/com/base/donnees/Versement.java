@@ -1,5 +1,5 @@
 package com.base.donnees;
-// Generated 8 mars 2022 à 09:59:35 by Hibernate Tools 4.3.5.Final
+// Generated 24 mars 2022 à 09:24:39 by Hibernate Tools 4.3.5.Final
 
 import java.util.Date;
 import javax.persistence.AttributeOverride;
@@ -51,7 +51,7 @@ public class Versement implements java.io.Serializable {
 		this.id = id;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "id_agent", nullable = false, insertable = false, updatable = false)
 	public Agentdescolarite getAgentdescolarite() {
 		return this.agentdescolarite;
@@ -61,7 +61,7 @@ public class Versement implements java.io.Serializable {
 		this.agentdescolarite = agentdescolarite;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "matricule", nullable = false, insertable = false, updatable = false)
 	public Etudiant getEtudiant() {
 		return this.etudiant;

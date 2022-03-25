@@ -24,6 +24,7 @@ public class DirecteurDao implements IDirecteurDao {
             //student = session.load(Student.class, id);
             // commit the transaction
             transaction.commit();
+            session.close();
         } catch (Exception e) {
             if (transaction != null) {
                 transaction.rollback();
@@ -48,6 +49,7 @@ public class DirecteurDao implements IDirecteurDao {
 			    //or student = session.load(Student.class, id);
 			   //or commit the transaction
 			    transaction.commit();
+			    session.close();
 			    session.close();
 		} catch (Exception e) {
 			if (transaction != null) {

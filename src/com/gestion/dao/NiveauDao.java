@@ -27,6 +27,7 @@ public class NiveauDao implements INiveauDao {
             //student = session.load(Student.class, id);
             // commit the transaction
             transaction.commit();
+            session.close();
         } catch (Exception e) {
             if (transaction != null) {
                 transaction.rollback();
@@ -36,7 +37,7 @@ public class NiveauDao implements INiveauDao {
 	}
 
 	@Override
-	public Niveau getNiveauBylibelle(String s) {
+	public Niveau getNiveauById(int i) {
 		// TODO Auto-generated method stub
 		Transaction transaction = null;
         Niveau niveau = null;
@@ -46,11 +47,12 @@ public class NiveauDao implements INiveauDao {
 			    transaction = session.beginTransaction();
 
 			    // get student object
-			    niveau= session.byId(Niveau.class).getReference(s);
+			    niveau= session.byId(Niveau.class).getReference(i);
 			     // or student = session.get(Student.class, id);
 			    //or student = session.load(Student.class, id);
 			   //or commit the transaction
 			    transaction.commit();
+			    session.close();
 		} catch (Exception e) {
 			if (transaction != null) {
                 transaction.rollback();
@@ -58,7 +60,11 @@ public class NiveauDao implements INiveauDao {
 			
 	}
         return niveau;	
-        }
+	}
+
+	
+
+	
 
 	
 }

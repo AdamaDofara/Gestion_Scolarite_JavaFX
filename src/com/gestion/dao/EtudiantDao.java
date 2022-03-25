@@ -22,34 +22,32 @@ public class EtudiantDao implements IEtudiantDao {
 
 	            // save student object
 	            session.save(etudiant);
-
 	            // commit the transaction
 	            transaction.commit();
+	            session.close();
 	        } catch (Exception e) {
-	            if (transaction != null) {
-	                transaction.rollback();
-	            }
+	           e.printStackTrace();
 	        }
 	}
 
 	@Override
 	public void updateEtudiant(Etudiant etudiant) {
 		// TODO Auto-generated method stub
-		Transaction transaction = null;
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            // start the transaction
-            transaction = session.beginTransaction();
+		 Transaction transaction = null;
+	        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+	            // start the transaction
+	            transaction = session.beginTransaction();
 
-            // save student object
-            session.saveOrUpdate(etudiant);
+	            // save student object
+	            session.update(etudiant);
 
-            // commit the transaction
-            transaction.commit();
-        } catch (Exception e) {
-            if (transaction != null) {
-                transaction.rollback();
-            }
-        }
+	            // commit the transaction
+	            transaction.commit();
+	            session.close();
+	        } catch (Exception e) {
+	        if (transaction !=null) {
+				transaction.rollback();
+			}}
 	}
 
 	@Override
@@ -63,11 +61,12 @@ public class EtudiantDao implements IEtudiantDao {
 				    transaction = session.beginTransaction();
 
 				    // get student object
-				    etudiant= session.byId(Etudiant.class).getReference(matricule);
-				     // or student = session.get(Student.class, id);
-				    //or student = session.load(Student.class, id);
+				    //etudiant= session.byId(Etudiant.class).getReference(matricule);
+				     etudiant = session.get(Etudiant.class, matricule);
+				     //etudiant = session.load(Etudiant.class, matricule);
 				   //or commit the transaction
 				    transaction.commit();
+				    session.close();
 			} catch (Exception e) {
 				if (transaction != null) {
 	                transaction.rollback();
@@ -93,6 +92,7 @@ public class EtudiantDao implements IEtudiantDao {
             //student = session.load(Student.class, id);
             // commit the transaction
             transaction.commit();
+            session.close();
         } catch (Exception e) {
             if (transaction != null) {
                 transaction.rollback();
@@ -116,6 +116,7 @@ public class EtudiantDao implements IEtudiantDao {
             //student = session.load(Student.class, id);
             // commit the transaction
             transaction.commit();
+            session.close();
         } catch (Exception e) {
             if (transaction != null) {
                 transaction.rollback();

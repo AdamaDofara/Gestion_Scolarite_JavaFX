@@ -5,5 +5,5 @@ import com.base.donnees.Filiere;
 
 public interface IFiliereDao {
 	  List<Filiere> getAllFiliere();
-	  Filiere getFiliereBylibelle(String s);
+	  Filiere getFiliereById(int i);
 }

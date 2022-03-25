@@ -6,6 +6,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import com.base.donnees.Agentdescolarite;
+import com.base.donnees.Etudiant;
 import com.base.donnees.Niveau;
 import com.base.donnees.Versement;
 import com.base.donnees.VersementId;
@@ -76,6 +77,7 @@ public class VersementDao implements IVersementDao {
 	            
 	            // commit the transaction
 	            transaction.commit();
+	            session.close();
 	        } catch (Exception e) {
 	            if (transaction != null) {
 	                transaction.rollback();
@@ -84,7 +86,7 @@ public class VersementDao implements IVersementDao {
 	}
 
 	@Override
-	public List<Versement> getVerementOfAEtudiant(String s) {
+	public List<Versement> getVersementOfAEtudiant(String s) {
 		// TODO Auto-generated method stub
 		Transaction transaction = null;
         List<Versement> versements = null;
@@ -93,19 +95,45 @@ public class VersementDao implements IVersementDao {
             transaction = session.beginTransaction();
 
             // get students
-            versements = session.createQuery("SELECT  FROM versement v INNER JOIN etudiant e ON "+s+"=v.matricule"
-            		+ "INNER JOIN agentdescolarite a ON a.id_agent=v.id_agent"
-            		+ "GROUP BY(e.matricule)").list();
+            //SELECT  FROM VersementId AS v, Etudiant AS e, Agentdescolarite AS a "
+            		//+ "WHERE v.matricule="+s+"v.idAgent=a.idAgent
+            versements = session.createQuery("").list();
             //student = session.load(Student.class, id);
             // commit the transaction
             transaction.commit();
             session.close();
         } catch (Exception e) {
             if (transaction != null) {
-                transaction.rollback();
+              //  transaction.rollback();
             }
         }
         return versements;
 	}
+
+	@Override
+	public List<Float> vermentsEtudiant(String s) {
+		// TODO Auto-generated method stub
+		Transaction transaction = null;
+        List<Float> versementsEtudiant = null;
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            // start the transaction
+            transaction = session.beginTransaction();
+
+            // get students
+            versementsEtudiant = session.createQuery("FROM versement v inner join v.matricule as mat with mat="+s).getResultList();
+            // commit the transaction
+            transaction.commit();
+            session.close();
+        } catch (Exception e) {
+            if (transaction != null) {
+                
+            }
+        }
+        return versementsEtudiant;
+	}
+
+	
+
+	
 	
 }

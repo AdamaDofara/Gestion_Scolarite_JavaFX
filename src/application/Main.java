@@ -34,17 +34,5 @@ public class Main extends Application {
 			e.printStackTrace();
 		}
 	}
-	public static void main(String[] args) {
-		Filiere fil = new Filiere("MIAGE");
-		Set<Etudiant> lll=null;
-		lll=fil.getEtudiants();
-		for (Etudiant etudiant : lll) {
-			
-			System.out.println(etudiant.getNom()+" "+etudiant.getPrenom());
-			System.out.println("bonjou!!!!");
-		}
-		launch(args);
-		
-		
-}
+	
 }

@@ -59,6 +59,8 @@ public class authentificationController {
 		List < Directeur > directeurs = null;
 			DirecteurDao dd = new DirecteurDao();
 			directeurs=dd.getAllDirecteur();
+			System.out.println("Bonjour");
+			System.out.println(directeurs.size());
 			 //Recupperation des agents
 	   List <Agentdescolarite> agents = null;
 	   AgentdescolariteDao agt= new AgentdescolariteDao();
@@ -69,7 +71,7 @@ public class authentificationController {
 				for (Directeur directeur : directeurs) {
 					if (directeur.getPseudo().equals(pseudo.getText())  && 
 						directeur.getMotPasse().equals(passe.getText())  ) {
-						Parent agentSco;
+						
 						Stage agentStage = new Stage();
 						agentStage.initStyle(StageStyle.UNDECORATED);
 						try {
@@ -105,7 +107,7 @@ public class authentificationController {
 						//passage des données entre fenetre
 						
 						 AccueilController controller = loader.getController();
-						 controller.agentenligne(agentdescolarite.getNom(),agentdescolarite.getPrenom(),agentdescolarite.getIdAgent().toString());
+						 controller.agentttenligne(agentdescolarite.getNom(),agentdescolarite.getPrenom(),agentdescolarite.getIdAgent().toString());
 							Scene scene = new Scene(root);
 							scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 						agentStage.setScene(scene);
